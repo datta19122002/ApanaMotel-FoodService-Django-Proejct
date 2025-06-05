@@ -1,0 +1,19 @@
+{% include 'navbar.html' %}
+<div class="container">
+    <div class="row justify-content-center" >
+        <div class="col-6" >
+            <form action="" method="get">
+                <h3 class="text-center">Addtion Program</h3>
+                <label for="num1">First Number :</label>
+                <input type="text" name="num1" value="" class="form form-control">
+                <label for="num1">Second Number :</label>
+                <input type="text" name="num2" value="" class="form form-control">
+                <button class="btn btn-info my-3" type="submit">Add</button>
+                <br>
+                <label for="">Output : </label>
+                <input type="text" value="{{output}}">
+            </form>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}

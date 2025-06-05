@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: url('/static/photos/bg2.png') center center fixed; /* Replace 'your-background-image.jpg' with the actual image path */
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .login-container {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-btn {
+            width: 100%;
+        }
+
+        .additional-options {
+            margin-top: 10px;
+        }
+
+        /* 3D Animation */
+        .login-container:hover {
+            transform: rotateX(-10deg) rotateY(10deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container cartoon-form">
+        <h2>Create New Account</h2>
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control cartoon-input" id="username" name="username" required>
+            </div>
+            
+            <div>
+                <label for="gender">Gender : </label>
+                <input type="radio" name="gender" value="Male" id="" required>
+                <label >Male</label>
+                <input type="radio" name="gender" value="Female" id="" required>
+                <label >Female</label>
+                <input type="radio" name="gender" value="Other" id="" required>
+                <label >Other</label>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+           <div class="d-flex justify-content-center">
+
+               <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Sign Up</button>
+           </div>
+        </form>
+        <div class="social-buttons text-center mt-3">
+
+            <a class="btn btn-info btn-lg btn-block" href="{% url 'numberlogin' %}" role="button">Login with Phone Number</a>
+            <a class="btn btn-secondary btn-lg btn-block" href="{% url 'email' %}" role="button">Login with Email</a>
+            
+          </div>
+        
+          <!-- Additional Links (e.g., Forgot Password, Register) -->
+          <div class="mt-3 text-center extra-content">
+            <a href="{% url 'loginpage' %}">Login</a>
+          </div>
+        </div>
+    </div>
+
+
+ 
+    
+ 
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

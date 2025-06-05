@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Feedback Page</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background: url('/static/photos/bg3.png') center/cover no-repeat fixed;
+      color: #fff;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      padding: 20px;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+    }
+
+    .feedback-container {
+      max-width: 400px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .btn-submit {
+      background-color: #007bff;
+      color: #fff;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .btn-submit:hover {
+      background-color: #0056b3;
+    }
+
+    /* Cartoon-style form */
+    .cartoon-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cartoon-input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #000;
+      border-radius: 5px;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    #thankyou{
+      color:#000;
+    }
+    .cartoon-btn {
+      width: 100%;
+      padding: 10px;
+      background-color: #ffcc00;
+      color: #000;
+      border: none;
+      border-radius: 5px;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    .cartoon-btn:hover {
+      background-color: #ffd633;
+    }
+    h2,p{
+      color:black;
+    }
+
+    /* Cartoon animations */
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-30px);
+      }
+      60% {
+        transform: translateY(-15px);
+      }
+    }
+
+    .animated-cartoon {
+      animation: bounce 2s infinite;
+    }
+  </style>
+</head>
+<body>
+  <!--onsubmit="showThankYouModal(); return false;"-->
+
+
+  <div class="container my-5">
+    <div class="row d-flex justify-content-center align-items-center mt-5">
+        <div class="col-6">
+            <video width="550" height="700" controls>
+                <source src="/static/photos/feedback.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="col-6">
+          <div class="feedback-container">
+            <div class="cartoon-form">
+              <h2 class="text-center mb-4 animated-cartoon">Submit Your Feedback</h2>
+              <form method="post" >
+                {% csrf_token %}
+                <div class="form-group">
+                  <input type="text" name='name' class="cartoon-input" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" name='email' class="cartoon-input" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                  <textarea type="text" name='feedback' class="cartoon-input" id="feedback" rows="4" placeholder="Your Feedback" required></textarea>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="cartoon-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Submit Feedback</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  
+ 
+
+
+
+  <div class="modal fade" id="thankYouModal" tabindex="-1" role="dialog" aria-labelledby="thankYouModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <h5 class="" id="thankyou">Thank You for Your Feedback!</h5>
+                <p>(Your's Feedback Submited Succsesfully!)</p>
+                <button type="button" class="btn btn-primary px-4" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showThankYouModal() {
+        $('#thankYouModal').modal('show');
+    }
+</script>
+  
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.http import response
+import mysql.connector as sql
+
+# Create your views here.
+phone=''
+pwd=''
+
+def number(request):
+    global phone, pwd
+    
+    if request.method=="POST":
+        m=sql.connect(host='localhost', user='root', passwd='071418210016902', database='apana_motel')
+        cursor=m.cursor();
+        d=request.POST
+        for key, value in d.items():
+            if key == "number":
+                phone=value
+            if key == "password":
+                pwd = value
+                
+        c="select * from signin where phone_no='{}' and password='{}'".format(phone, pwd)
+        cursor.execute(c)
+        t=tuple(cursor.fetchall())
+        if t==():
+            return render(request, 'error.html')
+        else:
+            return redirect('/index/')
+    
+    return render(request, 'loginwithnumber.html')
+
+

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You for Ordering</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    #thankYouMessage {
+      display: none;
+      font-size: 24px;
+      color: #28a745;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    #additionalTopics {
+      margin-top: 30px;
+    }
+    #technologySection {
+      margin-top: 50px;
+      padding: 20px;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 10px;
+    }
+    #technologyList {
+      list-style-type: none;
+      padding: 0;
+    }
+    #technologyList li {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Your order has been placed!</h1>
+    <p>We appreciate your business. Thank you for choosing our restaurant.</p>
+    <div id="thankYouMessage">Thank you for your order! 🍔🎉</div>
+    <a type="button" class="btn btn-danger my-2" href="{% url "index" %}" >Thank you !</a>
+
+    <div id="additionalTopics">
+      <h2>Additional Topics</h2>
+      <p>Explore some exciting topics below:</p>
+      <ul>
+        <li>Latest Food Trends 🌮</li>
+        <li>Healthy Eating Tips 🥗</li>
+        <li>Culinary Innovations 🍽️</li>
+      </ul>
+    </div>
+
+    <div id="technologySection">
+      <h2>New Technologies</h2>
+      <ul id="technologyList">
+        <li>Smart Kitchen Appliances 🤖</li>
+        <li>Augmented Reality Menus 🕶️</li>
+        <li>Drone Food Delivery 🚁</li>
+        <li>Blockchain in Food Supply Chain ⛓️</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  <script>
+    // Add animation and show thank you message after a delay
+    $(document).ready(function() {
+      setTimeout(function() {
+        $("#thankYouMessage").fadeIn();
+      }, 2000); // Show the message after 2 seconds
+    });
+  </script>
+</body>
+</html>

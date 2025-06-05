@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login Page</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            background: url('/static/photos/bg2.png') center center fixed; /* Replace 'your-background-image.jpg' with the actual image path */
+            background-size: cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        .login-container {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .login-btn {
+            width: 100%;
+        }
+
+        .additional-options {
+            margin-top: 10px;
+        }
+
+      
+        .login-container:hover {
+            transform: rotateX(-10deg) rotateY(10deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container cartoon-form">
+      
+        <form method="post" class="login-form" action="">
+            {% csrf_token %}
+            <h2 class="text-center mb-4">Login</h2>
+            <div class="form-group">
+                <label for="number">Enter Phone Number:</label>
+                <input type="number" class="form-control"  name="number" id="email" placeholder="Enter your Phone Number " required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-login btn-block">Login</button>
+        </form>
+        <div class="social-buttons text-center mt-3">
+            <a class="btn btn-info btn-lg btn-block" href="{% url 'loginpage' %}" role="button">Login with Username</a>
+            <a class="btn btn-secondary btn-lg btn-block" href="{% url 'email' %}" role="button">Login with Email</a>
+          </div>
+        
+          <!-- Additional Links (e.g., Forgot Password, Register) -->
+          <div class="mt-3 text-center extra-content">
+            <a href="#">Forgot Password?</a> | <a href="{% url 'signpage' %}">Register</a>
+                <br>
+                <a href="{% url 'loginpage' %}"><b>Your hava already account :</b> login</a>
+          </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
